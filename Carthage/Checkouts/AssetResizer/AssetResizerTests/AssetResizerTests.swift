@@ -18,26 +18,32 @@ class AssetResizerTests: XCTestCase {
             return
         }
 
-        let sizeDescriptions = [
-            SizeDescription(name: "iphone", size: NSSize(width: 500, height: 500), pixelDensity: 2),
-            SizeDescription(name: "ipad", size: NSSize(width: 100, height: 100), pixelDensity: 2)
-        ]
-        
+        let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let sampleProjectFolder = documentDirectoryURL.appendingPathComponent("Cookie")
+
+        let paths = AssetCatalog.findAppIconSets(inFolder: sampleProjectFolder)
+        let appIconSetPath = paths[0]
+        var assetCatalog = AssetCatalog(atPath: appIconSetPath)
+        let sizeDescriptions = assetCatalog.sizes
+
         let resizedImages = sizeDescriptions.map { sizeDescription -> ResizedImage? in
             if let resizedImage = original.resize(to: sizeDescription.size) {
-                return ResizedImage(image: resizedImage,
-                                    sizeDescription: sizeDescription)
+                return ResizedImage(name: sizeDescription.canonicalName,
+                                    image: resizedImage,
+                                    sizeDescription: sizeDescription,
+                                    bitmapType: .PNG)
             } else {
                 return nil
             }
         }.flatMap { $0 }
-        
+
+        try? assetCatalog.updateContents(with: resizedImages)
+
         for resizedImage in resizedImages {
-            let resizedImageURL = TestData.desktopPath(forFile: "\(resizedImage.sizeDescription.canonicalName).png")
-            try? resizedImage.save(to: resizedImageURL, type: .PNG)
+            try? resizedImage.save(at: appIconSetPath)
         }
 
-        XCTAssertEqual(resizedImages.count, 2)
+//        XCTAssertEqual(resizedImages.count, 6)
     }
     
 }
