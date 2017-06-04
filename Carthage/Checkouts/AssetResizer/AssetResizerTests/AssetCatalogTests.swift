@@ -14,7 +14,7 @@ class AssetCatalogTests: XCTestCase {
 
     func testFindAssetCatalog() {
         let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let beeTestFolder = documentDirectoryURL.appendingPathComponent("Bee")
+        let beeTestFolder = documentDirectoryURL.appendingPathComponent("Cookie")
 
         let paths = AssetCatalog.findAppIconSets(inFolder: beeTestFolder)
         let assetCatalog = AssetCatalog(atPath: paths[0])

@@ -9,7 +9,11 @@
 import Foundation
 
 public struct AssetCatalog {
-    
+
+    enum AssetCatalogError: Error {
+        case CouldNotReadImageSizesFromJSON
+    }
+
     private let path: URL
     
     private var jsonPath: URL {
@@ -21,16 +25,11 @@ public struct AssetCatalog {
     public var sizes: [SizeDescription] {
         if let jsonSizes = jsonContents?["images"] as? [[String: String]] {
             return jsonSizes.map { jsonSize -> SizeDescription? in
-                return AssetCatalog.sizeDescription(forJSON: jsonSize)
+                return SizeDescription(json: jsonSize)
                 }.flatMap { $0 }
         } else {
             return []
         }
-    }
-    
-    public init(atPath aPath: URL) {
-        path = aPath
-        jsonContents = readContents(atPath: jsonPath)
     }
     
     public static func findAppIconSets(inFolder folder: URL) -> [URL] {
@@ -47,6 +46,39 @@ public struct AssetCatalog {
         return []
     }
     
+    public init(atPath aPath: URL) {
+        path = aPath
+        jsonContents = readContents(atPath: jsonPath)
+    }
+
+    public mutating func updateContents(with resizedImages: [ResizedImage]) throws {
+        guard let jsonSizes = jsonContents?["images"] as? [[String: String]] else {
+            throw AssetCatalogError.CouldNotReadImageSizesFromJSON
+        }
+
+        jsonContents?["images"] = jsonSizes
+            .map { jsonSize -> [String: String]? in
+                guard let jsonSizeDescription = SizeDescription(json: jsonSize) else {
+                    return nil
+                }
+
+                let resizedImage = resizedImages.first { resizedImage -> Bool in
+                    resizedImage.sizeDescription == jsonSizeDescription
+                }
+
+                var newJsonSize = jsonSize
+                newJsonSize["filename"] = resizedImage?.filename
+
+                return newJsonSize
+            }
+            .flatMap { $0 }
+
+        if let jsonContents = jsonContents {
+            let jsonData = try? JSONSerialization.data(withJSONObject: jsonContents, options: .prettyPrinted)
+            try? jsonData?.write(to: path.appendingPathComponent("Contents.json"))
+        }
+    }
+
     // MARK: - Private helpers
     private func readContents(atPath path: URL) -> [String: Any]? {
         if let data = try? Data(contentsOf: path),
@@ -55,23 +87,6 @@ public struct AssetCatalog {
         } else {
             return nil
         }
-    }
-    
-    private static func sizeDescription(forJSON json: [String: String]) -> SizeDescription? {
-        guard
-            let name = json["idiom"],
-            let sizeComponents = json["size"]?.components(separatedBy: "x"),
-            let width = Double(sizeComponents[0]),
-            let height = Double(sizeComponents[1]),
-            let pixelDensityString = json["scale"],
-            let pixelDensity = Int(pixelDensityString.replacingOccurrences(of: "x", with: ""))
-            else {
-            return nil
-        }
-
-        return SizeDescription(name: name,
-                               size: NSSize(width: width, height: height),
-                               pixelDensity: pixelDensity)
     }
     
 }
