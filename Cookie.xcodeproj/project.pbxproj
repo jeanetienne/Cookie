@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7312E011EE6F07F00DC2572 /* AppIconSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7312E001EE6EFD000DC2572 /* AppIconSet.swift */; };
 		F7363ED41EE3CAC9005BA675 /* Path+Relative.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7363ED31EE3CAC9005BA675 /* Path+Relative.swift */; };
 		F7F0E36A1EE2708300E09A9A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3691EE2708300E09A9A /* main.swift */; };
-		F7F0E39A1EE3A5C300E09A9A /* AssetCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3951EE3A5C300E09A9A /* AssetCatalog.swift */; };
 		F7F0E39B1EE3A5C300E09A9A /* NSImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3971EE3A5C300E09A9A /* NSImage+Resizing.swift */; };
 		F7F0E39C1EE3A5C300E09A9A /* NSImage+Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3981EE3A5C300E09A9A /* NSImage+Saving.swift */; };
 		F7F0E39D1EE3A5C300E09A9A /* ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3991EE3A5C300E09A9A /* ResizedImage.swift */; };
@@ -33,10 +33,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F7312E001EE6EFD000DC2572 /* AppIconSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSet.swift; sourceTree = "<group>"; };
 		F7363ED31EE3CAC9005BA675 /* Path+Relative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+Relative.swift"; sourceTree = "<group>"; };
 		F7F0E3661EE2708300E09A9A /* cookie */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cookie; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F0E3691EE2708300E09A9A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		F7F0E3951EE3A5C300E09A9A /* AssetCatalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCatalog.swift; sourceTree = "<group>"; };
 		F7F0E3961EE3A5C300E09A9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7F0E3971EE3A5C300E09A9A /* NSImage+Resizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Resizing.swift"; sourceTree = "<group>"; };
 		F7F0E3981EE3A5C300E09A9A /* NSImage+Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Saving.swift"; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		F7F0E3941EE3A5C300E09A9A /* AssetResizer */ = {
 			isa = PBXGroup;
 			children = (
-				F7F0E3951EE3A5C300E09A9A /* AssetCatalog.swift */,
+				F7312E001EE6EFD000DC2572 /* AppIconSet.swift */,
 				F7F0E3961EE3A5C300E09A9A /* Info.plist */,
 				F7F0E3971EE3A5C300E09A9A /* NSImage+Resizing.swift */,
 				F7F0E3981EE3A5C300E09A9A /* NSImage+Saving.swift */,
@@ -190,7 +190,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F0E39A1EE3A5C300E09A9A /* AssetCatalog.swift in Sources */,
 				F7F0E3A41EE3ADAF00E09A9A /* Option.swift in Sources */,
 				F7F0E39C1EE3A5C300E09A9A /* NSImage+Saving.swift in Sources */,
 				F7F0E39B1EE3A5C300E09A9A /* NSImage+Resizing.swift in Sources */,
@@ -200,6 +199,7 @@
 				F7F0E3AB1EE3C00B00E09A9A /* PathKit.swift in Sources */,
 				F7F0E39D1EE3A5C300E09A9A /* ResizedImage.swift in Sources */,
 				F7F0E36A1EE2708300E09A9A /* main.swift in Sources */,
+				F7312E011EE6F07F00DC2572 /* AppIconSet.swift in Sources */,
 				F7363ED41EE3CAC9005BA675 /* Path+Relative.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

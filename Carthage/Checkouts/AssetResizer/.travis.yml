@@ -1,0 +1,23 @@
+# Travis CI config for AssetResizer
+language: swift
+osx_image: xcode8.3
+xcode_project: AssetResizer.xcodeproj
+
+env:
+  global:
+  - PROJECT=AssetResizer.xcodeproj
+  - SCHEME=AssetResizer
+  - SDK=macosx10.12
+  - DESTINATION="arch=x86_64"
+
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c;
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  
+notifications:
+  email: false

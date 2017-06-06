@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7363ED61EE531DD005BA675 /* ResizedImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7363ED51EE531DD005BA675 /* ResizedImageTests.swift */; };
+		F7678EF61EE550A60089FAF7 /* SizeDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7678EF51EE550A60089FAF7 /* SizeDescriptionTests.swift */; };
+		F7678EFB1EE558160089FAF7 /* SampleAppIcon.appiconset.zip in Resources */ = {isa = PBXBuildFile; fileRef = F7678EFA1EE558160089FAF7 /* SampleAppIcon.appiconset.zip */; };
+		F7678EFD1EE5717A0089FAF7 /* URL+TempFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7678EFC1EE5717A0089FAF7 /* URL+TempFolder.swift */; };
 		F79678ED1EDFD14600AC0948 /* AssetResizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F79678E31EDFD14600AC0948 /* AssetResizer.framework */; };
 		F79679001EDFD6A600AC0948 /* AssetResizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79678FF1EDFD6A600AC0948 /* AssetResizerTests.swift */; };
 		F7F0E33F1EDFE9D500E09A9A /* NSImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E33E1EDFE9D500E09A9A /* NSImage+Resizing.swift */; };
@@ -16,8 +20,8 @@
 		F7F0E3531EE0390500E09A9A /* Bundle+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3521EE0390500E09A9A /* Bundle+Tests.swift */; };
 		F7F0E3551EE0390E00E09A9A /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3541EE0390E00E09A9A /* TestData.swift */; };
 		F7F0E3571EE0462800E09A9A /* ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3561EE0462800E09A9A /* ResizedImage.swift */; };
-		F7F0E3591EE14C0B00E09A9A /* AssetCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3581EE14C0B00E09A9A /* AssetCatalog.swift */; };
-		F7F0E35B1EE153EB00E09A9A /* AssetCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E35A1EE153EB00E09A9A /* AssetCatalogTests.swift */; };
+		F7F0E3591EE14C0B00E09A9A /* AppIconSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E3581EE14C0B00E09A9A /* AppIconSet.swift */; };
+		F7F0E35B1EE153EB00E09A9A /* AppIconSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0E35A1EE153EB00E09A9A /* AppIconSetTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F70398681EE6D347003F2AD6 /* update-version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "update-version.sh"; sourceTree = "<group>"; };
+		F70398691EE6D347003F2AD6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F703986A1EE6D347003F2AD6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F703986C1EE6D7A7003F2AD6 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		F7363ED51EE531DD005BA675 /* ResizedImageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizedImageTests.swift; sourceTree = "<group>"; };
+		F7678EF51EE550A60089FAF7 /* SizeDescriptionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeDescriptionTests.swift; sourceTree = "<group>"; };
+		F7678EFA1EE558160089FAF7 /* SampleAppIcon.appiconset.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SampleAppIcon.appiconset.zip; sourceTree = "<group>"; };
+		F7678EFC1EE5717A0089FAF7 /* URL+TempFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+TempFolder.swift"; sourceTree = "<group>"; };
 		F79678E31EDFD14600AC0948 /* AssetResizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AssetResizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79678E71EDFD14600AC0948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79678EC1EDFD14600AC0948 /* AssetResizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssetResizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,8 +55,8 @@
 		F7F0E3521EE0390500E09A9A /* Bundle+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Tests.swift"; sourceTree = "<group>"; };
 		F7F0E3541EE0390E00E09A9A /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		F7F0E3561EE0462800E09A9A /* ResizedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizedImage.swift; sourceTree = "<group>"; };
-		F7F0E3581EE14C0B00E09A9A /* AssetCatalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCatalog.swift; sourceTree = "<group>"; };
-		F7F0E35A1EE153EB00E09A9A /* AssetCatalogTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCatalogTests.swift; sourceTree = "<group>"; };
+		F7F0E3581EE14C0B00E09A9A /* AppIconSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconSet.swift; sourceTree = "<group>"; };
+		F7F0E35A1EE153EB00E09A9A /* AppIconSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconSetTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +84,10 @@
 				F79678E51EDFD14600AC0948 /* AssetResizer */,
 				F79678F01EDFD14600AC0948 /* AssetResizerTests */,
 				F79678E41EDFD14600AC0948 /* Products */,
+				F70398691EE6D347003F2AD6 /* LICENSE */,
+				F703986A1EE6D347003F2AD6 /* README.md */,
+				F703986C1EE6D7A7003F2AD6 /* .travis.yml */,
+				F70398681EE6D347003F2AD6 /* update-version.sh */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,7 +103,7 @@
 		F79678E51EDFD14600AC0948 /* AssetResizer */ = {
 			isa = PBXGroup;
 			children = (
-				F7F0E3581EE14C0B00E09A9A /* AssetCatalog.swift */,
+				F7F0E3581EE14C0B00E09A9A /* AppIconSet.swift */,
 				F7F0E3561EE0462800E09A9A /* ResizedImage.swift */,
 				F7F0E33E1EDFE9D500E09A9A /* NSImage+Resizing.swift */,
 				F7F0E3411EE0011C00E09A9A /* NSImage+Saving.swift */,
@@ -100,7 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				F79678FF1EDFD6A600AC0948 /* AssetResizerTests.swift */,
-				F7F0E35A1EE153EB00E09A9A /* AssetCatalogTests.swift */,
+				F7F0E35A1EE153EB00E09A9A /* AppIconSetTests.swift */,
+				F7363ED51EE531DD005BA675 /* ResizedImageTests.swift */,
+				F7678EF51EE550A60089FAF7 /* SizeDescriptionTests.swift */,
 				F7F0E3511EE0390500E09A9A /* Tools */,
 				F7F0E34B1EE0388300E09A9A /* test-data */,
 				F79678F31EDFD14600AC0948 /* Info.plist */,
@@ -111,6 +129,7 @@
 		F7F0E34B1EE0388300E09A9A /* test-data */ = {
 			isa = PBXGroup;
 			children = (
+				F7678EFA1EE558160089FAF7 /* SampleAppIcon.appiconset.zip */,
 				F7F0E34C1EE0388300E09A9A /* iOS */,
 			);
 			path = "test-data";
@@ -129,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				F7F0E3521EE0390500E09A9A /* Bundle+Tests.swift */,
+				F7678EFC1EE5717A0089FAF7 /* URL+TempFolder.swift */,
 				F7F0E3541EE0390E00E09A9A /* TestData.swift */,
 			);
 			path = Tools;
@@ -191,18 +211,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Jean-Étienne";
 				TargetAttributes = {
 					F79678E21EDFD14600AC0948 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = N44EJ7YB22;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					F79678EB1EDFD14600AC0948 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = N44EJ7YB22;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -238,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7F0E3501EE0388300E09A9A /* sample-red-app-icon.png in Resources */,
+				F7678EFB1EE558160089FAF7 /* SampleAppIcon.appiconset.zip in Resources */,
 				F7F0E34F1EE0388300E09A9A /* sample-blue-app-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F0E3591EE14C0B00E09A9A /* AssetCatalog.swift in Sources */,
+				F7F0E3591EE14C0B00E09A9A /* AppIconSet.swift in Sources */,
 				F7F0E3421EE0011C00E09A9A /* NSImage+Saving.swift in Sources */,
 				F7F0E33F1EDFE9D500E09A9A /* NSImage+Resizing.swift in Sources */,
 				F7F0E3571EE0462800E09A9A /* ResizedImage.swift in Sources */,
@@ -277,10 +299,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7363ED61EE531DD005BA675 /* ResizedImageTests.swift in Sources */,
 				F7F0E3531EE0390500E09A9A /* Bundle+Tests.swift in Sources */,
-				F7F0E35B1EE153EB00E09A9A /* AssetCatalogTests.swift in Sources */,
+				F7F0E35B1EE153EB00E09A9A /* AppIconSetTests.swift in Sources */,
+				F7678EF61EE550A60089FAF7 /* SizeDescriptionTests.swift in Sources */,
 				F79679001EDFD6A600AC0948 /* AssetResizerTests.swift in Sources */,
 				F7F0E3551EE0390E00E09A9A /* TestData.swift in Sources */,
+				F7678EFD1EE5717A0089FAF7 /* URL+TempFolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +330,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -313,7 +340,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -358,7 +389,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -366,7 +399,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

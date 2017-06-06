@@ -8,20 +8,51 @@
 
 import AppKit
 
+/// A value that represents the resized version of an original image
 public struct ResizedImage {
-    
+
+    /// Resized image
+    public let image: NSImage
+
+    /// Name of the image
     public let name: String
 
-    public let image: NSImage
-    
+    /// Description of the size used to resize the original
     public let sizeDescription: SizeDescription
 
+    /// The bitmap type to be used when saving this image to disk
     public let bitmapType: NSBitmapImageFileType
 
+    /// The filename to be used when saving this image to disk
     public var filename: String {
         return "\(name).\(bitmapType.fileExtension)"
     }
 
+    /// Initializes with the original image
+    ///
+    /// - Parameter original: The original to used to create the resized version.
+    /// - Parameter name: The name to use for this image.
+    /// - Parameter resizing: The size description to use to resize the original.
+    /// - Parameter bitmapType: The bitmap type to be used when saving this image to disk.
+    ///
+    /// Returns nil if the original couldn't be resized.
+    init?(original: NSImage,
+          name aName: String,
+          resizing aSizeDescription: SizeDescription,
+          bitmapType aBitmapType: NSBitmapImageFileType) {
+        guard let resizedOriginal = original.resize(to: aSizeDescription.pixelSize) else {
+            return nil
+        }
+        image = resizedOriginal
+        name = aName
+        sizeDescription = aSizeDescription
+        bitmapType = aBitmapType
+    }
+
+    /// Saves the image to disk at `path`, using the name and bitmap type
+    /// provided at initialization.
+    ///
+    /// - Parameter path: Path at which to write the image to disk.
     public func save(at path: URL) throws {
         try image.save(to: path.appendingPathComponent(filename), type: bitmapType)
     }
@@ -32,7 +63,7 @@ public struct SizeDescription {
     
     public let name: String
     
-    public var size: NSSize {
+    public var pixelSize: NSSize {
         return NSSize(width: pointSize.width * CGFloat(pixelDensity),
                       height: pointSize.height * CGFloat(pixelDensity))
     }
@@ -45,7 +76,7 @@ public struct SizeDescription {
         return "\(name)-\(Int(pointSize.width))x\(Int(pointSize.height))@\(pixelDensity)x"
     }
     
-    public init(name aName: String, size aSize: NSSize, pixelDensity aPixelDensity: Int) {
+    public init(name aName: String, pointSize aSize: NSSize, pixelDensity aPixelDensity: Int) {
         name = aName
         pixelDensity = aPixelDensity
         pointSize = aSize
