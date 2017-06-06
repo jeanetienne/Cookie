@@ -20,25 +20,31 @@ do {
 // Finding .appiconset folders
 print("-> Looking for a .appiconset in:")
 print(cookie.projectFolder.path)
-let paths = AssetCatalog.findAppIconSets(inFolder: cookie.projectFolder)
+let paths = AppIconSet.findAppIconSets(inFolder: cookie.projectFolder)
 
 // Choosing which .appiconset folder to use
 let appIconSetPath = paths[0]
+let appIconSetRelativePath = Path(appIconSetPath.path).relativeString(to: cookie.projectFolder.path)
 if paths.count > 1 {
-    let relativePath = Path(appIconSetPath.path).relativeString(to: cookie.projectFolder.path)
     print("-> Multiple .appiconset found, using:")
-    print(relativePath)
+    print(appIconSetRelativePath)
 }
 
 // Reading sizing options from content.json
-let sizeDescriptions = AssetCatalog(atPath: appIconSetPath).sizes
+guard var appIconSet = AppIconSet(atPath: appIconSetPath) else {
+    print("Error: could not read app icon set at path: \(appIconSetPath)")
+    exit(EX_USAGE)
+}
+let sizeDescriptions = appIconSet.sizes
 
 // Cutting images
 let resizedImages = cookie.cut(atSizes: sizeDescriptions)
 
-// Saving images
+// Saving images in .appiconset
 for resizedImage in resizedImages {
-    let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-    let resizedImageURL = currentDirectoryURL.appendingPathComponent("\(resizedImage.sizeDescription.canonicalName).png")
-//    try? resizedImage.save(to: resizedImageURL, type: .PNG)
+    try? resizedImage.save(at: appIconSetPath)
 }
+
+// Updating .appiconset Content.json
+try? appIconSet.update(with: resizedImages)
+print("-> Updated \(appIconSetRelativePath) with \(resizedImages.count) images")

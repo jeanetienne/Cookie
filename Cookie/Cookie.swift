@@ -78,10 +78,10 @@ struct Cookie {
 
         return sizeDescriptions
             .map { sizeDescription -> ResizedImage? in
-                if let resizedImage = image.resize(to: sizeDescription.size) {
-                    return ResizedImage(name: sizeDescription.canonicalName,
-                                        image: resizedImage,
-                                        sizeDescription: sizeDescription,
+                if let resizedImage = image.resize(to: sizeDescription.pixelSize) {
+                    return ResizedImage(original: resizedImage,
+                                        name: sizeDescription.canonicalName,
+                                        resizing: sizeDescription,
                                         bitmapType: .PNG)
                 } else {
                     return nil
