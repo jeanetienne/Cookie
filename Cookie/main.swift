@@ -20,7 +20,7 @@ do {
 // Finding .appiconset folders
 print("-> Looking for a .appiconset in:")
 print(cookie.parentFolder.path)
-let paths = AppIconSet.findAppIconSets(inFolder: cookie.parentFolder)
+let paths = AppIconSet.find(in: cookie.parentFolder)
 
 // Choosing which .appiconset folder to use
 let appIconSetPath = paths[0]

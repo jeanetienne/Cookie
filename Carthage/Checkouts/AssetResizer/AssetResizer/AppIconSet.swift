@@ -60,7 +60,7 @@ public struct AppIconSet {
     /// - Returns: An array of paths in which the last component is a folder
     ///   with the `*.appiconset` extension, in the order they are traversed.
     ///   Can be empty.
-    public static func findAppIconSets(inFolder folder: URL) -> [URL] {
+    public static func find(in folder: URL) -> [URL] {
         return self.findItems(withExtension: self.pathExtension, inFolder: folder)
     }
     

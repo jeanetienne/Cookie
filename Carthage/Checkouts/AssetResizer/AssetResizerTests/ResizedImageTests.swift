@@ -14,14 +14,12 @@ class ResizedImageTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        try? FileManager.default.createDirectory(at: URL.cacheFolder,
-                                                 withIntermediateDirectories: true,
-                                                 attributes: nil)
+        TestData.createCacheFolder()
     }
     
     override func tearDown() {
         super.tearDown()
-        try? FileManager.default.removeItem(at: URL.cacheFolder)
+        TestData.removeCacheFolder()
     }
 
     func testFailingInitialization() {
