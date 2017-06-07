@@ -25,13 +25,13 @@ class AppIconSetTests: XCTestCase {
     }
 
     func testFindAppIconSet() {
-        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
+        let paths = AppIconSet.find(in: URL.cacheFolder)
 
         XCTAssertEqual(paths.count, 1, "AppIconSet didn't find exactly one .appiconset")
     }
     
     func testNotFindAppIconSetInsideAppIconSet() {
-        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder.appendingPathComponent("SampleAppIcon.appiconset"))
+        let paths = AppIconSet.find(in: URL.cacheFolder.appendingPathComponent("SampleAppIcon.appiconset"))
 
         XCTAssertEqual(paths.count, 0, "AppIconSet found an .appiconset")
     }
@@ -41,7 +41,7 @@ class AppIconSetTests: XCTestCase {
     }
 
     func testGettingSizes() {
-        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
+        let paths = AppIconSet.find(in: URL.cacheFolder)
         let appIconSetPath = paths[0]
         if let appIconSet = AppIconSet(atPath: appIconSetPath) {
             let sizes = appIconSet.sizes
@@ -54,7 +54,7 @@ class AppIconSetTests: XCTestCase {
 
     func testUpdate() {
         let originalImage = TestData.image(named: "sample-red-app-icon")!
-        let paths = AppIconSet.findAppIconSets(inFolder: URL.cacheFolder)
+        let paths = AppIconSet.find(in: URL.cacheFolder)
         let appIconSetPath = paths[0]
         guard var appIconSet = AppIconSet(atPath: appIconSetPath) else {
             return XCTAssertTrue(false, "AppIconSet could not be initialized")
@@ -76,50 +76,50 @@ class AppIconSetTests: XCTestCase {
         if let updatedSizes = AppIconSet(atPath: appIconSetPath)?.jsonRepresentation["images"] as? [[String: String]] {
             let updatedFilenames = updatedSizes.map { $0["filename"] }.flatMap { $0 }.sorted()
             let expectedFilenames = [
-                "car-60x60@2x.png",
-                "car-60x60@3x.png",
-                "ipad-20x20@1x.png",
-                "ipad-20x20@2x.png",
-                "ipad-29x29@1x.png",
-                "ipad-29x29@2x.png",
-                "ipad-40x40@1x.png",
-                "ipad-40x40@2x.png",
-                "ipad-50x50@1x.png",
-                "ipad-50x50@2x.png",
-                "ipad-72x72@1x.png",
-                "ipad-72x72@2x.png",
-                "ipad-76x76@1x.png",
-                "ipad-76x76@2x.png",
-                "ipad-83x83@2x.png",
-                "iphone-20x20@2x.png",
-                "iphone-20x20@3x.png",
-                "iphone-29x29@1x.png",
-                "iphone-29x29@2x.png",
-                "iphone-29x29@3x.png",
-                "iphone-40x40@2x.png",
-                "iphone-40x40@3x.png",
-                "iphone-57x57@1x.png",
-                "iphone-57x57@2x.png",
-                "iphone-60x60@2x.png",
-                "iphone-60x60@3x.png",
-                "mac-16x16@1x.png",
-                "mac-16x16@2x.png",
-                "mac-32x32@1x.png",
-                "mac-32x32@2x.png",
-                "mac-128x128@1x.png",
-                "mac-128x128@2x.png",
-                "mac-256x256@1x.png",
-                "mac-256x256@2x.png",
-                "mac-512x512@1x.png",
-                "mac-512x512@2x.png",
-                "watch-24x24@2x.png",
-                "watch-27x27@2x.png",
-                "watch-29x29@2x.png",
-                "watch-29x29@3x.png",
-                "watch-40x40@2x.png",
-                "watch-44x44@2x.png",
-                "watch-86x86@2x.png",
-                "watch-98x98@2x.png"
+                "car-60@2x.png",
+                "car-60@3x.png",
+                "ipad-20@1x.png",
+                "ipad-20@2x.png",
+                "ipad-29@1x.png",
+                "ipad-29@2x.png",
+                "ipad-40@1x.png",
+                "ipad-40@2x.png",
+                "ipad-50@1x.png",
+                "ipad-50@2x.png",
+                "ipad-72@1x.png",
+                "ipad-72@2x.png",
+                "ipad-76@1x.png",
+                "ipad-76@2x.png",
+                "ipad-83.5@2x.png",
+                "iphone-20@2x.png",
+                "iphone-20@3x.png",
+                "iphone-29@1x.png",
+                "iphone-29@2x.png",
+                "iphone-29@3x.png",
+                "iphone-40@2x.png",
+                "iphone-40@3x.png",
+                "iphone-57@1x.png",
+                "iphone-57@2x.png",
+                "iphone-60@2x.png",
+                "iphone-60@3x.png",
+                "mac-16@1x.png",
+                "mac-16@2x.png",
+                "mac-32@1x.png",
+                "mac-32@2x.png",
+                "mac-128@1x.png",
+                "mac-128@2x.png",
+                "mac-256@1x.png",
+                "mac-256@2x.png",
+                "mac-512@1x.png",
+                "mac-512@2x.png",
+                "watch-24@2x.png",
+                "watch-27.5@2x.png",
+                "watch-29@2x.png",
+                "watch-29@3x.png",
+                "watch-40@2x.png",
+                "watch-44@2x.png",
+                "watch-86@2x.png",
+                "watch-98@2x.png"
             ].sorted()
 
             XCTAssertEqual(updatedFilenames, expectedFilenames, "AppIconSet didn't find the expected updated contents")

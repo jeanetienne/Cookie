@@ -73,7 +73,7 @@ public struct SizeDescription {
     private let pointSize: NSSize
     
     public var canonicalName: String {
-        return "\(name)-\(Int(pointSize.width))x\(Int(pointSize.height))@\(pixelDensity)x"
+        return "\(name)-\(pointSize.description)@\(pixelDensity)x"
     }
     
     public init(name aName: String, pointSize aSize: NSSize, pixelDensity aPixelDensity: Int) {
@@ -116,7 +116,31 @@ extension SizeDescription: CustomDebugStringConvertible {
     
 }
 
-extension NSBitmapImageFileType {
+private extension NSSize {
+
+    var description: String {
+        if width == height {
+            return width.description
+        } else {
+            return "\(width.description)x\(height.description)"
+        }
+    }
+
+}
+
+private extension CGFloat {
+
+    var description: String {
+        if ceil(self) == self {
+            return "\(Int(self))"
+        } else {
+            return String(format: "%.1f", self)
+        }
+    }
+
+}
+
+private extension NSBitmapImageFileType {
 
     var fileExtension: String {
         switch self {
