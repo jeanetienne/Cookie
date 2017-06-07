@@ -19,12 +19,12 @@ do {
 
 // Finding .appiconset folders
 print("-> Looking for a .appiconset in:")
-print(cookie.projectFolder.path)
-let paths = AppIconSet.findAppIconSets(inFolder: cookie.projectFolder)
+print(cookie.parentFolder.path)
+let paths = AppIconSet.findAppIconSets(inFolder: cookie.parentFolder)
 
 // Choosing which .appiconset folder to use
 let appIconSetPath = paths[0]
-let appIconSetRelativePath = Path(appIconSetPath.path).relativeString(to: cookie.projectFolder.path)
+let appIconSetRelativePath = Path(appIconSetPath.path).relativeString(to: cookie.parentFolder.path)
 if paths.count > 1 {
     print("-> Multiple .appiconset found, using:")
     print(appIconSetRelativePath)
@@ -40,11 +40,20 @@ let sizeDescriptions = appIconSet.sizes
 // Cutting images
 let resizedImages = cookie.cut(atSizes: sizeDescriptions)
 
-// Saving images in .appiconset
-for resizedImage in resizedImages {
-    try? resizedImage.save(at: appIconSetPath)
+if let outputFolder = cookie.outputFolder {
+    // Saving images to output folder
+    for resizedImage in resizedImages {
+        try? resizedImage.save(at: outputFolder)
+    }
+    print("-> Generated \(resizedImages.count) images at \(outputFolder.path)")
+} else {
+    // Saving images in .appiconset
+    for resizedImage in resizedImages {
+        try? resizedImage.save(at: appIconSetPath)
+    }
+
+    // Updating .appiconset Content.json
+    try? appIconSet.update(with: resizedImages)
+    print("-> Updated \(appIconSetRelativePath) with \(resizedImages.count) images")
 }
 
-// Updating .appiconset Content.json
-try? appIconSet.update(with: resizedImages)
-print("-> Updated \(appIconSetRelativePath) with \(resizedImages.count) images")
