@@ -24,7 +24,7 @@ struct Cookie {
     
     private let outputFolderOption: StringOption = {
         return StringOption(shortFlag: "o", longFlag: "output", required: false,
-                            helpMessage: "Path to the output folder. If no path is given, images are directly replaced in the .appiconset.")
+                            helpMessage: "Path to the output folder. If no path is given, images are placed in the .appiconset folder and the Contents.json file is updated accordingly")
     }()
     
     private var imagePath: URL? {
@@ -43,7 +43,7 @@ struct Cookie {
         }
     }
     
-    var projectFolder: URL {
+    var parentFolder: URL {
         if let parentFolderValue = parentFolderOption.value {
             return Path(parentFolderValue).absolute().url
         } else {
@@ -78,14 +78,10 @@ struct Cookie {
 
         return sizeDescriptions
             .map { sizeDescription -> ResizedImage? in
-                if let resizedImage = image.resize(to: sizeDescription.pixelSize) {
-                    return ResizedImage(original: resizedImage,
-                                        name: sizeDescription.canonicalName,
-                                        resizing: sizeDescription,
-                                        bitmapType: .PNG)
-                } else {
-                    return nil
-                }
+                return ResizedImage(original: image,
+                                    name: sizeDescription.canonicalName,
+                                    resizing: sizeDescription,
+                                    bitmapType: .PNG)
             }
             .flatMap { $0 }
     }
