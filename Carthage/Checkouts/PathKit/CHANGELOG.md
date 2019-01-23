@@ -1,5 +1,30 @@
 # PathKit Changelog
 
+## 0.9.2 (2018-09-10)
+
+### Enhancements
+
+- Adds support for Swift 4.2.
+
+## 0.9.1
+
+### Bug Fixes
+
+* Fix warning with Swift 4, support 4.1
+  [Keith Smiley](https://github.com/keith)
+
+## 0.9.0
+
+### Enhancements
+
+* Support for Swift 4.
+
+### Bug Fixes
+
+* Appending to (.) slice started with (..) will return correct path.  
+  [Antondomashnev](https://github.com/Antondomashnev)
+
+
 ## 0.8.0
 
 ### Enhancements

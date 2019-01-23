@@ -1,9 +1,6 @@
 //
-//  Cookie.swift
 //  Cookie
-//
-//  Created by Jean-Étienne on 4/6/17.
-//  Copyright © 2017 Jean-Étienne. All rights reserved.
+//  Copyright © 2019 Jean-Étienne. All rights reserved.
 //
 
 import AppKit
@@ -81,8 +78,8 @@ struct Cookie {
                 return ResizedImage(original: image,
                                     name: sizeDescription.canonicalName,
                                     resizing: sizeDescription,
-                                    bitmapType: .PNG)
+                                    bitmapType: .png)
             }
-            .flatMap { $0 }
+            .compactMap { $0 }
     }
 }

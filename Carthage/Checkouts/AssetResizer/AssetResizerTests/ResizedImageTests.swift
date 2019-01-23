@@ -1,9 +1,6 @@
 //
-//  ResizedImageTests.swift
 //  AssetResizer
-//
-//  Created by Jean-Étienne on 5/6/17.
-//  Copyright © 2017 Jean-Étienne. All rights reserved.
+//  Copyright © 2019 Jean-Étienne. All rights reserved.
 //
 
 import XCTest
@@ -30,7 +27,7 @@ class ResizedImageTests: XCTestCase {
         let resizedImage = ResizedImage(original: image,
                                         name: "failed",
                                         resizing: sizeDescription,
-                                        bitmapType: .PNG)
+                                        bitmapType: .png)
         XCTAssertNil(resizedImage)
     }
 
@@ -42,7 +39,7 @@ class ResizedImageTests: XCTestCase {
         if let resizedImage = ResizedImage(original: image!,
                                            name: "foo",
                                            resizing: sizeDescription,
-                                           bitmapType: .PNG) {
+                                           bitmapType: .png) {
             XCTAssertEqual(resizedImage.filename, "foo.png", "Resized image has wrong filename")
         } else {
             XCTAssertTrue(false, "Resized image could not be initialized")
@@ -57,7 +54,7 @@ class ResizedImageTests: XCTestCase {
         if let resizedImage = ResizedImage(original: image!,
                                            name: "bar",
                                            resizing: sizeDescription,
-                                           bitmapType: .TIFF) {
+                                           bitmapType: .tiff) {
             XCTAssertEqual(resizedImage.filename, "bar.tiff", "Resized image has wrong filename")
         } else {
             XCTAssertTrue(false, "Resized image could not be initialized")
@@ -72,7 +69,7 @@ class ResizedImageTests: XCTestCase {
         if let resizedImage = ResizedImage(original: image!,
                                            name: "baz",
                                            resizing: sizeDescription,
-                                           bitmapType: .JPEG2000) {
+                                           bitmapType: .jpeg2000) {
             XCTAssertEqual(resizedImage.filename, "baz.jpg", "Resized image has wrong filename")
         } else {
             XCTAssertTrue(false, "Resized image could not be initialized")
@@ -87,7 +84,7 @@ class ResizedImageTests: XCTestCase {
         if let resizedImage = ResizedImage(original: image!,
                                            name: "baz",
                                            resizing: sizeDescription,
-                                           bitmapType: .BMP) {
+                                           bitmapType: .bmp) {
             XCTAssertEqual(resizedImage.filename, "baz.bmp", "Resized image has wrong filename")
         } else {
             XCTAssertTrue(false, "Resized image could not be initialized")
@@ -102,7 +99,7 @@ class ResizedImageTests: XCTestCase {
         if let resizedImage = ResizedImage(original: image!,
                                            name: "baz",
                                            resizing: sizeDescription,
-                                           bitmapType: .GIF) {
+                                           bitmapType: .gif) {
             XCTAssertEqual(resizedImage.filename, "baz.gif", "Resized image has wrong filename")
         } else {
             XCTAssertTrue(false, "Resized image could not be initialized")
@@ -117,7 +114,7 @@ class ResizedImageTests: XCTestCase {
         if let resizedImage = ResizedImage(original: image!,
                                            name: "baz",
                                            resizing: sizeDescription,
-                                           bitmapType: .JPEG) {
+                                           bitmapType: .jpeg) {
             XCTAssertEqual(resizedImage.filename, "baz.jpg", "Resized image has wrong filename")
         } else {
             XCTAssertTrue(false, "Resized image could not be initialized")
@@ -132,7 +129,7 @@ class ResizedImageTests: XCTestCase {
         if let resizedImage = ResizedImage(original: image!,
                                            name: sizeDescription.canonicalName,
                                            resizing: sizeDescription,
-                                           bitmapType: .PNG) {
+                                           bitmapType: .png) {
             try? resizedImage.save(at: URL.cacheFolder)
             let resizedImageURL = URL.cacheFolder.appendingPathComponent(resizedImage.filename)
             XCTAssertNotNil(NSImage(contentsOf: resizedImageURL),
