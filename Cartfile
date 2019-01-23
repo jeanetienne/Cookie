@@ -1,5 +1,5 @@
 # Cartfile for Cookie
 
 github "jeanetienne/AssetResizer"
-github "jatoben/CommandLine" "master"
+github "jeanetienne/CommandLine"
 github "kylef/PathKit"
