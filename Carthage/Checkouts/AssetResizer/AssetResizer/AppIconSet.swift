@@ -1,9 +1,6 @@
 //
-//  AppIconSet.swift
 //  AssetResizer
-//
-//  Created by Jean-Étienne on 2/6/17.
-//  Copyright © 2017 Jean-Étienne. All rights reserved.
+//  Copyright © 2019 Jean-Étienne. All rights reserved.
 //
 
 import Foundation
@@ -48,7 +45,7 @@ public struct AppIconSet {
         if let jsonSizes = jsonContents["images"] as? [[String: String]] {
             return jsonSizes.map { jsonSize -> SizeDescription? in
                 return SizeDescription(json: jsonSize)
-                }.flatMap { $0 }
+                }.compactMap { $0 }
         } else {
             return []
         }
@@ -118,7 +115,7 @@ public struct AppIconSet {
 
                 return newJsonSize
             }
-            .flatMap { $0 }
+            .compactMap { $0 }
 
         do {
             try AppIconSet.write(jsonContents: jsonContents, atPath: jsonPath)

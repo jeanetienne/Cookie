@@ -1,9 +1,6 @@
 //
-//  SizeDescriptionTests.swift
 //  AssetResizer
-//
-//  Created by Jean-Étienne on 5/6/17.
-//  Copyright © 2017 Jean-Étienne. All rights reserved.
+//  Copyright © 2019 Jean-Étienne. All rights reserved.
 //
 
 import XCTest

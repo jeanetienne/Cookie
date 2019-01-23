@@ -1,9 +1,6 @@
 //
-//  AppIconSetTests.swift
 //  AssetResizer
-//
-//  Created by Jean-Étienne on 2/6/17.
-//  Copyright © 2017 Jean-Étienne. All rights reserved.
+//  Copyright © 2019 Jean-Étienne. All rights reserved.
 //
 
 import XCTest
@@ -64,8 +61,8 @@ class AppIconSetTests: XCTestCase {
             return ResizedImage(original: originalImage,
                                 name: sizeDescription.canonicalName,
                                 resizing: sizeDescription,
-                                bitmapType: .PNG)
-            }.flatMap { $0 }
+                                bitmapType: .png)
+            }.compactMap { $0 }
 
         do {
             try appIconSet.update(with: resizedImages)
@@ -74,7 +71,7 @@ class AppIconSetTests: XCTestCase {
         }
 
         if let updatedSizes = AppIconSet(atPath: appIconSetPath)?.jsonRepresentation["images"] as? [[String: String]] {
-            let updatedFilenames = updatedSizes.map { $0["filename"] }.flatMap { $0 }.sorted()
+            let updatedFilenames = updatedSizes.map { $0["filename"] }.compactMap { $0 }.sorted()
             let expectedFilenames = [
                 "car-60@2x.png",
                 "car-60@3x.png",
