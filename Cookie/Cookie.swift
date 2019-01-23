@@ -81,8 +81,8 @@ struct Cookie {
                 return ResizedImage(original: image,
                                     name: sizeDescription.canonicalName,
                                     resizing: sizeDescription,
-                                    bitmapType: .PNG)
+                                    bitmapType: .png)
             }
-            .flatMap { $0 }
+            .compactMap { $0 }
     }
 }

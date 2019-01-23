@@ -164,7 +164,7 @@
 					F7F0E3651EE2708300E09A9A = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = N44EJ7YB22;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -321,7 +321,7 @@
 				DEVELOPMENT_TEAM = N44EJ7YB22;
 				PRODUCT_MODULE_NAME = Cookie;
 				PRODUCT_NAME = cookie;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -331,7 +331,7 @@
 				DEVELOPMENT_TEAM = N44EJ7YB22;
 				PRODUCT_MODULE_NAME = Cookie;
 				PRODUCT_NAME = cookie;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
