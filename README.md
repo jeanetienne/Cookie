@@ -1,4 +1,7 @@
-# 🍪 Cookie [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/jeanetienne/Cookie/master/LICENSE.md) [![GitHub release](https://img.shields.io/github/release/jeanetienne/Cookie.svg)](https://github.com/jeanetienne/Cookie/releases)
+# 🍪 Cookie 
+
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/jeanetienne/Cookie/master/LICENSE.md) [![GitHub release](https://img.shields.io/github/release/jeanetienne/Cookie.svg)](https://github.com/jeanetienne/Cookie/releases)
+
 A command line cookie cutter for your Xcode app icons.
 
 ## Usage
