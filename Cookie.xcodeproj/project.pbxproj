@@ -35,6 +35,8 @@
 /* Begin PBXFileReference section */
 		F7312E001EE6EFD000DC2572 /* AppIconSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSet.swift; sourceTree = "<group>"; };
 		F7363ED31EE3CAC9005BA675 /* Path+Relative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+Relative.swift"; sourceTree = "<group>"; };
+		F757D7D3220FAF880060A62E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F757D7D4220FB3EE0060A62E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F7F0E3661EE2708300E09A9A /* cookie */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cookie; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F0E3691EE2708300E09A9A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F7F0E3961EE3A5C300E09A9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +68,8 @@
 				F7F0E3681EE2708300E09A9A /* Cookie */,
 				F7F0E3671EE2708300E09A9A /* Products */,
 				F7F0E3701EE271D700E09A9A /* Frameworks */,
+				F757D7D4220FB3EE0060A62E /* LICENSE */,
+				F757D7D3220FAF880060A62E /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
