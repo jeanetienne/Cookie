@@ -9,10 +9,11 @@ func == (lhs:ThrowError, rhs:ThrowError) -> Bool { return true }
 
 public func testPathKit() {
 describe("PathKit") {
-  let fixtures = Path(#file).parent() + "Fixtures"
+  let filePath = #file
+  let fixtures = Path(filePath).parent() + "Fixtures"
 
   $0.before {
-    Path.current = Path(#file).parent()
+    Path.current = Path(filePath).parent()
   }
 
   $0.it("provides the system separator") {
@@ -212,11 +213,7 @@ describe("PathKit") {
 
   $0.it("can return the last component without extension") {
     try expect(Path("a/b/c.d").lastComponentWithoutExtension) == "c"
-    #if !os(Linux) || swift(>=4.1)
-        try expect(Path("a/..").lastComponentWithoutExtension) == ".."
-    #else
-        try expect(Path("a/..").lastComponentWithoutExtension) == "."
-    #endif
+    try expect(Path("a/..").lastComponentWithoutExtension) == ".."
   }
 
   $0.it("can be split into components") {
@@ -418,15 +415,12 @@ describe("PathKit") {
 
   $0.describe("conforms to SequenceType") {
     $0.it("without options") {
-      #if !os(Darwin) && !swift(>=4.1)
-      throw skip()
-      #else
       let path = fixtures + "directory"
       var children = ["child", "subdirectory", ".hiddenFile"].map { path + $0 }
       let generator = path.makeIterator()
       while let child = generator.next() {
         generator.skipDescendants()
-        if let index = children.index(of: child) {
+        if let index = children.firstIndex(of: child) {
           children.remove(at: index)
         } else {
           throw failure("Generated unexpected element: <\(child)>")
@@ -435,7 +429,6 @@ describe("PathKit") {
 
       try expect(children.isEmpty).to.beTrue()
       try expect(Path("/non/existing/directory/path").makeIterator().next()).to.beNil()
-      #endif
     }
   
     $0.it("with options") {
@@ -447,7 +440,7 @@ describe("PathKit") {
       let generator = path.iterateChildren(options: .skipsHiddenFiles).makeIterator()
       while let child = generator.next() {
         generator.skipDescendants()
-        if let index = children.index(of: child) {
+        if let index = children.firstIndex(of: child) {
           children.remove(at: index)
         } else {
           throw failure("Generated unexpected element: <\(child)>")

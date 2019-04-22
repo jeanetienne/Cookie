@@ -9,7 +9,7 @@ extension URL {
 
     static var cacheFolder: URL = { () -> URL in
         let folderPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-        return folderPath.appendingPathComponent(Bundle.tests.bundleIdentifier!)
+        return folderPath.appendingPathComponent(AssetResizerTests.identifier)
     }()
 
 }

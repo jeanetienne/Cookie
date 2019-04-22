@@ -1,5 +1,15 @@
 # PathKit Changelog
 
+## 1.0.0 (2019-03-27)
+
+### Enhancements
+
+- Fix warnings for Swift 5
+
+### Breaking
+
+- Drop support for Swift < 4.2
+
 ## 0.9.2 (2018-09-10)
 
 ### Enhancements
