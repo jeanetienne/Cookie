@@ -7,8 +7,12 @@ import XCTest
 
 @testable import AssetResizer
 
+<<<<<<< HEAD:Tests/AssetResizerTests/AssetResizerTests.swift
 final class AssetResizerTests: XCTestCase {
 
     static let identifier = "net.jeanetienne.AssetResizerTests"
+=======
+class AssetResizerTests: XCTestCase {
+>>>>>>> parent of c22513e... Moving on to using Swift Package Manager:AssetResizerTests/AssetResizerTests.swift
 
 }
