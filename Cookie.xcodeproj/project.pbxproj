@@ -328,7 +328,7 @@
 				DEVELOPMENT_TEAM = N44EJ7YB22;
 				PRODUCT_MODULE_NAME = Cookie;
 				PRODUCT_NAME = cookie;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -338,7 +338,7 @@
 				DEVELOPMENT_TEAM = N44EJ7YB22;
 				PRODUCT_MODULE_NAME = Cookie;
 				PRODUCT_NAME = cookie;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
